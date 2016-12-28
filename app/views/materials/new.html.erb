@@ -1,0 +1,7 @@
+<h1>Cadastrar materiais</h1>
+<%= simple_form_for @material do |f| %>
+  <%= f.input :product, label: 'Produto' %>
+  <%= f.input :volume, label: 'Quantidade' %>
+  <%= f.input :wish, collection: 1..5, label: 'Desejo de trocar' %>
+  <%= f.button :submit, 'Cadastrar' %>
+<% end %>
