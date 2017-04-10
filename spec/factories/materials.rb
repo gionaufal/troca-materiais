@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :material do
-    product "MyString"
-    volume "MyString"
-    wish "MyString"
+    product "Caixotes"
+    volume "100 kg"
+    wish "4"
   end
 end

@@ -17,6 +17,10 @@ class MaterialsController < ApplicationController
     @material = Material.find(params[:id])
   end
 
+  def index
+    @materials = Material.all
+  end
+
   private
   def material_params
     params.require(:material).permit(:product, :volume, :wish)

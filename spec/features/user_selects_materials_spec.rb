@@ -4,7 +4,7 @@ feature 'User can select materials' do
   scenario 'successfully' do
     visit root_path
 
-    click_on 'Cadastrar materiais'
+    click_on 'Cadastrar materiais que tenho e quero trocar'
 
     fill_in 'Produto', with: 'Pregos'
     fill_in 'Quantidade', with: '10 kg'
@@ -20,7 +20,7 @@ feature 'User can select materials' do
   scenario 'and must fill all fields' do
     visit root_path
 
-    click_on 'Cadastrar materiais'
+    click_on 'Cadastrar materiais que tenho e quero trocar'
 
     fill_in 'Produto', with: 'Pregos'
 
