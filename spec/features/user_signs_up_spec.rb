@@ -21,7 +21,6 @@ feature 'User can sign up' do
 
     click_on 'Cadastrar'
 
-    binding.pry
     expect(current_path).to eq(root_path)
     expect(page)
       .to have_content 'Bem vindo! Você realizou seu registro com sucesso'
@@ -44,5 +43,4 @@ feature 'User can sign up' do
 
     expect(page).to have_content 'não pode ficar em branco'
   end
-
 end
