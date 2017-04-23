@@ -14,10 +14,11 @@ gem 'faker'
 gem 'devise'
 gem 'materialize-sass'
 gem 'materialize-form'
+gem 'pg'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
@@ -34,11 +35,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
-end
-
-group :production do
-    gem 'pg'
-    gem 'rails_12factor'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
