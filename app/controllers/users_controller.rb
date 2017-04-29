@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
+  before_action :set_user
+
   def show
-    @user = User.find(params[:id])
+    @user = UserPresenter.new(@user)
     @wishes = @user.wishes
     @materials = @user.materials
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

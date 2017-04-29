@@ -4,6 +4,9 @@ feature 'User can select materials' do
   scenario 'successfully' do
     visit root_path
 
+    user = create(:user)
+    login_as(user)
+
     click_on 'Cadastrar materiais que tenho e quero trocar'
 
     fill_in 'Produto', with: 'Pregos'

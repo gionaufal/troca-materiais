@@ -1,7 +1,7 @@
 <div class="user">
   <h2><%= @user.name %></h2>
-  <h3>Meus desejos</h3>
+  <h3><%= @user.wish_title %></h3>
   <%= render @wishes %>
-  <h3>Meus materiais</h3>
+  <h3><%= @user.material_title %></h3>
   <%= render @materials %>
 </div>

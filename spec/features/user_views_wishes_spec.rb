@@ -3,8 +3,9 @@ require 'rails_helper'
 feature 'User views all registered wishes' do
   scenario 'through home page' do
     visit root_path
-    wish1 = create(:wish)
-    wish2 = create(:wish, product: 'Areia', volume: 50.0)
+    user = create(:user)
+    wish1 = create(:wish, user: user)
+    wish2 = create(:wish, product: 'Areia', volume: 50.0, user: user)
 
     click_on 'Meus desejos'
 

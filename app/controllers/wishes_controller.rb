@@ -5,6 +5,7 @@ class WishesController < ApplicationController
 
   def create
     @wish = Wish.new(wish_params)
+    @wish.user = current_user
     if @wish.save
       redirect_to @wish
     else

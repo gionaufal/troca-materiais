@@ -7,7 +7,7 @@ feature 'User views other users' do
 
     login_as(user)
 
-    visit user2
+    visit user_path(user2)
 
     expect(page).to have_content 'Materiais que deseja trocar'
     expect(page).to have_content 'Materiais que deseja receber'

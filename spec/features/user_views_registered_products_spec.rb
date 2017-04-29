@@ -3,8 +3,11 @@ require 'rails_helper'
 feature 'User views all registered products' do
   scenario 'through the home page' do
     visit root_path
-    material1 = create(:material, product: 'Pregos')
-    material2 = create(:material, product: 'Ripas de madeira', volume: '10 kg')
+    user = create(:user)
+    login_as(user)
+
+    material1 = create(:material, product: 'Pregos', user: user)
+    material2 = create(:material, product: 'Ripas de madeira', volume: '10 kg', user: user)
 
     click_on 'Meus produtos'
 

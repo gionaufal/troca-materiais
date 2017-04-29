@@ -4,6 +4,9 @@ feature 'User registers wishes' do
   scenario 'successfully' do
     visit root_path
 
+    user = create(:user)
+    login_as(user)
+
     click_on 'Cadastrar materiais que desejo receber'
 
     fill_in 'Produto', with: 'Areia'
