@@ -5,3 +5,9 @@
   <h3><%= (@user == current_user) ? 'Meus materiais' : 'Materiais que deseja trocar' %></h3>
   <%= render @materials %>
 </div>
+
+<% if @user == current_user %>
+  <div class="matches">
+    <h2>Correspondências</h2>
+  </div>
+<% end %>
