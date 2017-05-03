@@ -1,8 +1,8 @@
 <div class="user">
   <h2><%= @user.name %></h2>
-  <h3><%= (@user == current_user) ? 'Meus desejos' : 'Materiais que deseja receber' %></h3>
+  <h3><%= @user.wish_title %></h3>
   <%= render @wishes %>
-  <h3><%= (@user == current_user) ? 'Meus materiais' : 'Materiais que deseja trocar' %></h3>
+  <h3><%= @user.material_title %></h3>
   <%= render @materials %>
 </div>
 
