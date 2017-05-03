@@ -9,5 +9,13 @@
 <% if @user == current_user %>
   <div class="matches">
     <h2>Correspondências</h2>
+    <h3>Materiais que quero</h3>
+    <% @wishes_matches.each do |match| %>
+      <p><%= link_to match.product, user_path(match.user_id) %></p>
+    <% end %>
+    <h3>Materiais que tenho</h3>
+    <% @materials_matches.each do |match| %>
+      <p><%= link_to match.product, user_path(match.user_id) %></p>
+    <% end %>
   </div>
 <% end %>
