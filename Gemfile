@@ -15,7 +15,7 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'materialize-form'
 gem 'pg'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug', platform: :mri
