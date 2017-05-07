@@ -10,7 +10,7 @@ feature 'User can select materials' do
     click_on 'Cadastrar materiais que tenho e quero trocar'
 
     fill_in 'Produto', with: 'Pregos'
-    fill_in 'Quantidade', with: '10 kg'
+    fill_in 'Quantidade', with: '10'
     select 5, from: 'Desejo de trocar'
 
     click_on 'Cadastrar'

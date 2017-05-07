@@ -1,4 +1,6 @@
 class MaterialsController < ApplicationController
+  before_action :find_material, only:[:show, :edit, :update]
+
   def new
     @material = Material.new
   end
@@ -15,7 +17,17 @@ class MaterialsController < ApplicationController
   end
 
   def show
-    @material = Material.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @material.update(material_params)
+      redirect_to current_user
+    else
+      flash[:alert] = 'Todos os campos são obrigatórios'
+    end
   end
 
   def index
@@ -26,4 +38,9 @@ class MaterialsController < ApplicationController
   def material_params
     params.require(:material).permit(:product, :volume, :wish)
   end
+
+  def find_material
+    @material = Material.find(params[:id])
+  end
+
 end

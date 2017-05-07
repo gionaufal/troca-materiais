@@ -1,3 +1,4 @@
 <h5><%= material.product %></h5>
-<p>Quantidade: <%= material.volume %></p>
+<p>Quantidade: <%= material.volume %> kg</p>
 <p>Desejo de trocar: <%= material.wish %></p>
+<%= link_to 'Editar', edit_material_path(material), class:'whaves-effect waves-light btn' %>
