@@ -11,14 +11,16 @@
     <h2>Correspondências</h2>
     <h3>Materiais que quero</h3>
     <% @wishes_matches.each do |match| %>
-      <% if match && match != [] %>
-        <p><%= link_to match.product, user_path(match.user_id) %></p>
+      <% if !match.blank? %>
+        <p>Produto: <%= match.product %></p>
+        <p>Quem quer trocar: <%= link_to match.user.name, user_path(match.user_id) %></p>
       <% end %>
     <% end %>
     <h3>Materiais que tenho</h3>
     <% @materials_matches.each do |match| %>
-      <% if match && match != [] %>
-        <p><%= link_to match.product, user_path(match.user_id) %></p>
+      <% if !match.blank? %>
+        <p>Produto: <%= match.product %></p>
+        <p>Quem quer trocar: <%= link_to match.user.name, user_path(match.user_id) %></p>
       <% end %>
     <% end %>
   </div>

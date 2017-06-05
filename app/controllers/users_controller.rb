@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @materials = @user.materials
     @wishes_matches = find_wishes_matches
     @materials_matches = find_materials_matches
+    # @matches = find_matches
   end
 
   private
@@ -15,27 +16,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # def find_matches
+  #   wishes = @wishes.map(&:product)
+  #   materials = @materials.map(&:product)
+  #   User.where('materials IN (?)', find_materials_matches).where('wishes IN (?)', find_wishes_matches)
+  # end
+
   def find_wishes_matches
-    wishes = []
-    @wishes.each do |wish|
-      wishes << wish.product
-    end
-    matches = []
-    wishes.each do |wish|
-      matches << Material.where(product: wish).to_a
-    end
+    wishes = @wishes.map(&:product)
+    matches = wishes.map { |wish| Material.where(product: wish).to_a }
     matches.flatten
   end
 
   def find_materials_matches
-    materials = []
-    @materials.each do |material|
-      materials << material.product
-    end
-    matches = []
-    materials.each do |material|
-      matches << Wish.where(product: material).to_a
-    end
-    matches
+    materials = @materials.map(&:product)
+    matches = materials.map { |material| Wish.where(product: material).to_a }
+    matches.flatten
   end
 end
