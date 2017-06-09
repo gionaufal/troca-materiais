@@ -12,15 +12,13 @@
     <h3>Materiais que quero</h3>
     <% @wishes_matches.each do |match| %>
       <% if !match.blank? %>
-        <p>Produto: <%= match.product %></p>
-        <p>Quem quer trocar: <%= link_to match.user.name, user_path(match.user_id) %></p>
+        <%= render partial: 'shared/match', locals: { match: match } %>
       <% end %>
     <% end %>
     <h3>Materiais que tenho</h3>
     <% @materials_matches.each do |match| %>
       <% if !match.blank? %>
-        <p>Produto: <%= match.product %></p>
-        <p>Quem quer trocar: <%= link_to match.user.name, user_path(match.user_id) %></p>
+        <%= render partial: 'shared/match', locals: { match: match } %>
       <% end %>
     <% end %>
   </div>
