@@ -45,7 +45,6 @@ feature 'User creates match' do
       click_on 'Propor troca'
     end
 
-    binding.pry
     select wish1.product, from: 'Material que deseja receber'
     select wish2.product, from: 'Material que deseja trocar'
 
