@@ -1,25 +1,37 @@
 <div class="user">
   <h2><%= @user.name %></h2>
-  <h3><%= @user.wish_title %></h3>
-  <%= render @wishes %>
-  <h3><%= @user.material_title %></h3>
-  <%= render @materials %>
+
+  <div class="my_wishes">
+    <h3><%= @user.wish_title %></h3>
+    <%= render @wishes %>
+  </div>
+
+  <div class="my_materials">
+    <h3><%= @user.material_title %></h3>
+    <%= render @materials %>
+  </div>
 </div>
 
 <% if @user == current_user %>
   <div class="matches">
     <h2>Correspondências</h2>
-    <h3>Materiais que quero</h3>
-    <% @wishes_matches.each do |match| %>
-      <% if !match.blank? %>
-        <%= render partial: 'shared/match', locals: { match: match } %>
+
+    <div class="wishes">
+      <h3>Usuários que tem materiais que quero</h3>
+      <% @wishes_matches.each do |match| %>
+        <% if !match.blank? %>
+          <%= render partial: 'shared/match', locals: { match: match } %>
+        <% end %>
       <% end %>
-    <% end %>
-    <h3>Materiais que tenho</h3>
-    <% @materials_matches.each do |match| %>
-      <% if !match.blank? %>
-        <%= render partial: 'shared/match', locals: { match: match } %>
+    </div>
+
+    <div class="materials">
+      <h3>Usuários que querem materiais que tenho</h3>
+      <% @materials_matches.each do |match| %>
+        <% if !match.blank? %>
+          <%= render partial: 'shared/match', locals: { match: match } %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>

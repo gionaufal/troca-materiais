@@ -1,0 +1,9 @@
+<div class="new_match">
+  <%= simple_form_for @match do |f| %>
+    <%= f.label :wish, 'Material que deseja receber' %>
+    <%= f.input :wish, collection: @wishes, label_method: lambda { |wish| wish.product }, value_method: lambda { |wish| wish.id }, include_blank: false %>
+    <%= f.label :material, 'Material que deseja trocar' %>
+    <%= f.input :material, collection: @materials, label_method: lambda { |material| material.product }, value_method: lambda { |material| material.id }, include_blank: false %>
+    <%= f.button :submit, 'Enviar proposta' %>
+  <% end %>
+</div>

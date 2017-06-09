@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'User sees corresponding matches' do
   scenario 'in their own profile page' do
-    user1 = create(:user, name: "Nome1", email: "email1@test.com")
-    user2 = create(:user, name: "Nome2", email: "email2@test.com")
-    user3 = create(:user, name: "Nome3", email: "email3@test.com")
-    user4 = create(:user, name: "Nome4", email: "email4@test.com")
-    create(:user, name: "Nome5", email: "email5@test.com")
+    user1 = create(:user)
+    user2 = create(:user)
+    user3 = create(:user)
+    user4 = create(:user)
+    create(:user)
 
     wish1 = create(:wish, product: 'Pregos', user: user1)
     create(:material, product: 'Pregos', user: user2)

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    email 'gio@gio.com'
-    password 'senha123'
-    name 'Giovanni Naufal'
+    email { Faker::Internet::email }
+    password { Faker::Internet::password }
+    name { Faker::StarWars.character }
     city 'Sao Paulo'
     uf 'SP'
     address 'Av Paulista, 1512'

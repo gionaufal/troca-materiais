@@ -1,4 +1,10 @@
 <h5><%= material.product %></h5>
 <p>Quantidade: <%= material.volume %> kg</p>
 <p>Desejo de trocar: <%= material.wish %></p>
-<%= link_to 'Editar', edit_material_path(material), class:'whaves-effect waves-light btn' %>
+<% if user_signed_in? %>
+  <% if material.user == current_user %>
+    <%= link_to 'Editar', edit_material_path(material), class:'whaves-effect waves-light btn' %>
+  <% else %>
+    <%= link_to 'Propor troca', new_matches_path(id: material.user) , class:'whaves-effect waves-light btn' %>
+  <% end %>
+<% end %>

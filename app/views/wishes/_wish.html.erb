@@ -1,5 +1,10 @@
 <h5><%= wish.product %></h5>
 <p>Quantidade: <%= wish.volume %> kg</p>
 <p>Desejo de receber: <%= wish.wish %></p>
-<%= link_to 'Editar', edit_wish_path(wish), class:'whaves-effect waves-light btn' %>
-
+<% if user_signed_in? %>
+  <% if wish.user == current_user %>
+    <%= link_to 'Editar', edit_wish_path(wish), class:'whaves-effect waves-light btn' %>
+  <% else %>
+    <%= link_to 'Propor troca', new_matches_path(id: wish.user) , class:'whaves-effect waves-light btn' %>
+  <% end %>
+<% end %>
