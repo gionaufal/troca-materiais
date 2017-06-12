@@ -10,6 +10,7 @@ class MatchesController < ApplicationController
     other_user = Wish.find(@match.wish).user
     if @match.save
       current_user.notify(other_user, @match)
+      MatchMailer.match_email(@match).deliver_later
       flash[:notice] = 'Proposta enviada com sucesso'
       redirect_to other_user
     else
