@@ -4,6 +4,8 @@ feature 'User edits materials' do
   scenario 'should see link to edit' do
     user = create(:user)
 
+    login_as user
+
     create(:material, user: user)
     create(:material, product: 'Areia', volume: 50.0, user: user)
 

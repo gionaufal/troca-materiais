@@ -6,4 +6,12 @@ class User < ApplicationRecord
   validates :name, :address, :city, :uf, :zipcode, :email, presence: true
   has_many :wishes
   has_many :materials
+  has_many :notifications, dependent: :destroy
+
+  def notify(other_user, match)
+    Notification.create(user_id: other_user.id,
+                        notifier: id,
+                        match_id: match.id,
+                        read: false)
+  end
 end

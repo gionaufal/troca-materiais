@@ -4,6 +4,8 @@ feature 'User edits wishes' do
   scenario 'should see link to edit' do
     user = create(:user)
 
+    login_as user
+
     create(:wish, user: user)
     create(:wish, product: 'Areia', volume: 50, user: user)
 
