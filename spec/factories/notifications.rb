@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :notification do
     user nil
-    notifier "MyString"
-    read "MyString"
+    notified_by nil
+    match nil
+    read false
   end
 end

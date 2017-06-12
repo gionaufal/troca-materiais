@@ -11,7 +11,9 @@ feature 'User visits profile' do
 
     visit root_path
 
-    click_on 'Meu perfil'
+    within '.right' do
+      click_on 'Meu perfil'
+    end
 
     expect(page).to have_content 'Meus desejos'
     expect(page).to have_content wish.product

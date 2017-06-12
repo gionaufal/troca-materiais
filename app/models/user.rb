@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def notify(other_user, match)
     Notification.create(user_id: other_user.id,
-                        notifier: id,
+                        notified_by_id: id,
                         match_id: match.id,
                         read: false)
   end
