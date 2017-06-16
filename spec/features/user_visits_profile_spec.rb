@@ -11,7 +11,7 @@ feature 'User visits profile' do
 
     visit root_path
 
-    within '.right' do
+    within 'ul.right' do
       click_on 'Meu perfil'
     end
 
