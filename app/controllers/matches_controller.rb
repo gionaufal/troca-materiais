@@ -7,7 +7,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
-    other_user = Wish.find(@match.wish).user
+    other_user = Material.find(@match.wish).user
     if @match.save
       current_user.notify(other_user, @match)
       MatchMailer.match_email(@match).deliver_later
