@@ -1,1 +1,3 @@
-<li class='notification'>Nova proposta de <%= notification.notified_by.name %></li>
+<li class='notification'>
+  <%= link_to "Nova proposta de #{notification.notified_by.name}", match_path(notification.match_id) %>
+</li>

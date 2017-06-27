@@ -5,6 +5,6 @@
   <% if material.user == current_user %>
     <%= link_to 'Editar', edit_material_path(material), class:'whaves-effect waves-light btn' %>
   <% else %>
-    <%= link_to 'Propor troca', new_matches_path(id: material.user) , class:'whaves-effect waves-light btn' %>
+    <%= link_to 'Propor troca', new_match_path(id: material.user) , class:'whaves-effect waves-light btn' %>
   <% end %>
 <% end %>

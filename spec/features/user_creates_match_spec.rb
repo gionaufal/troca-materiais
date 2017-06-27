@@ -80,7 +80,10 @@ feature 'User creates match' do
 
     click_on 'Enviar proposta'
 
+    logout
+
     login_as user2
+    visit root_path
 
     expect(page).to have_content 'Notificações: 1'
   end

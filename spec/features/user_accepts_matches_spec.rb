@@ -34,12 +34,10 @@ feature 'User accepts matches' do
 
     visit root_path
 
-    binding.pry
     click_on 'Notificações: 1'
 
-    first('.notification').click
-
+    click_on 'Nova proposta de'
     expect(page).to have_link 'Aceitar proposta'
-    expect(page).to have_link 'Rejeitar proposta'
+    expect(page).to have_link 'Recusar proposta'
   end
 end

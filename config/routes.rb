@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :materials
   resources :wishes
-  resource :matches, only: [:new, :create]
+  resources :matches, only: [:new, :create, :show]
 end
