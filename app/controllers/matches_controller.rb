@@ -6,8 +6,11 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(match_params)
-    other_user = Material.find(@match.wish).user
+    @match = Match.new(
+      material_id: match_params[:material],
+      wish_id: match_params[:wish]
+    )
+    other_user = Material.find(@match.wish_id).user
     if @match.save
       current_user.notify(other_user, @match)
       MatchMailer.match_email(@match).deliver_later
@@ -21,8 +24,8 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @material = Material.find(@match.material)
-    @wish = Wish.find(@match.wish)
+    @material = Material.find(@match.material_id)
+    @wish = Wish.find(@match.wish_id)
   end
 
   private

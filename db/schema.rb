@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612205125) do
+ActiveRecord::Schema.define(version: 20171024144606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "matches", force: :cascade do |t|
-    t.string   "material"
-    t.string   "wish"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "material_id"
+    t.integer  "wish_id"
+    t.index ["material_id"], name: "index_matches_on_material_id", using: :btree
+    t.index ["wish_id"], name: "index_matches_on_wish_id", using: :btree
   end
 
   create_table "materials", force: :cascade do |t|
@@ -78,6 +80,8 @@ ActiveRecord::Schema.define(version: 20170612205125) do
     t.index ["user_id"], name: "index_wishes_on_user_id", using: :btree
   end
 
+  add_foreign_key "matches", "materials"
+  add_foreign_key "matches", "wishes"
   add_foreign_key "materials", "users"
   add_foreign_key "notifications", "matches"
   add_foreign_key "notifications", "users"

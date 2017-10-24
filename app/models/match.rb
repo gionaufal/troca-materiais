@@ -1,3 +1,4 @@
 class Match < ApplicationRecord
-  validates :material, :wish, presence: true
+  has_one :material
+  has_one :wish
 end
